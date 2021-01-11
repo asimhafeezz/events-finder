@@ -3,3 +3,39 @@
     max-width: 1150px;
     padding: .5rem .7rem;
 }
+
+@mixin cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    gap: .7rem;
+
+    @include smallThan(800px){
+        grid-template-columns: 1fr;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@mixin card {
+    min-width: 0;
+    border: .2px solid $light-gray;
+    border-radius: .5rem;
+    padding: .7rem;
+    @content;
+}
+
+//media quires
+@mixin smallThan ($pixels) {
+    @media (max-width: $pixels) {
+        @content
+    }
+}
