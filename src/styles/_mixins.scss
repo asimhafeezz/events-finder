@@ -4,14 +4,22 @@
     padding: .5rem .7rem;
 }
 
-@mixin cards-grid {
+@mixin grid {
     display: grid;
-    grid-template-columns: repeat(2 , 1fr);
     gap: .7rem;
+}
+
+@mixin cards-grid {
+    @include grid;
+    grid-template-columns: repeat(2 , 1fr);
 
     @include smallThan(800px){
         grid-template-columns: 1fr;
     }
+}
+
+@mixin main-grid {
+    @include grid;
 }
 
 @mixin flex-center {
@@ -29,7 +37,7 @@
     min-width: 0;
     border: .2px solid $light-gray;
     border-radius: .5rem;
-    padding: .7rem;
+    padding: 1rem;
     @content;
 }
 

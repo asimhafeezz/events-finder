@@ -3,6 +3,9 @@
 
     .card{
         @include card;
+        h3{
+            color: rgb(3, 154, 255);
+        }
         img{
             width: 100%;
             border-radius: .5rem;

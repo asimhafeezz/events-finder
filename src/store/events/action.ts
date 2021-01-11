@@ -27,6 +27,8 @@ export const useAction = (): UseActionI => {
     const fetchEvents = async (): Promise<void> => {
     const res = await axios.get<any>(url)
 
+    console.log(res.data)
+
     dispatch<FetchEventActionI>({
         type: types.fetchEvents,
         payload: res.data
