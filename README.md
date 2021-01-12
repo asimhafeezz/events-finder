@@ -1,4 +1,4 @@
-## Events-app
+## Events-App
 
 A app allow you to see events by filtering them.
 
