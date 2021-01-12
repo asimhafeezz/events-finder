@@ -1,9 +1,21 @@
+import { EventI } from './action';
 import { Action, ActionsTypes } from "./types";
 
-export const reducer = (state: any = [] , action: Action) => {
+export interface InitialStateI {
+    events: EventI[]
+}
+
+const initialState: InitialStateI = {
+    events: []
+}
+
+export const reducer = (state: InitialStateI = initialState , action: Action) => {
     switch(action.type){
         case ActionsTypes.fetchEvents: {
-            return action.payload
+            return {
+                ...state,
+                events: action.payload
+            }
         }
         default:
             return state

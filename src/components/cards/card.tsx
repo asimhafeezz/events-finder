@@ -1,11 +1,13 @@
+import { EventI } from "../../store/events/action"
 
-export const Card: React.FC = () => {
-	const imgURL = "https://miro.medium.com/max/2400/1*ydhn1QPAKsrbt6UWfn3YnA.jpeg"
+export const Card: React.FC<EventI> = (props) => {
+	const { name, images, dates , _embedded } = props
 	return (
 			<section className='card'>
-				<img src={imgURL} alt='flag images' />
-				<h3>Event Name</h3>
-				<p>Event Data from to...</p>
+				<img src={images[0].url} alt='flag images' />
+				<h3>{name}</h3>
+				<p>{dates.start.localDate}</p>
+				<h4>{_embedded?.venues[0].name}</h4>
 			</section>
 	)
 }
