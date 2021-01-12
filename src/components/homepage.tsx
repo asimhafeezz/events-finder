@@ -5,9 +5,10 @@ import { Cards } from "./cards"
 import { useAction } from '../store/events/action'
 
 export const Homepage: React.FC = () => {
-    const { fetchEvents } = useAction()
+    const { fetchEvents, setEventsLoading } = useAction()
     // call on render
     useEffect(()=>{
+        setEventsLoading(true)
         fetchEvents()
     },[])
     return(

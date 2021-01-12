@@ -2,11 +2,13 @@ import { EventI } from './action';
 import { Action, ActionsTypes } from "./types";
 
 export interface InitialStateI {
-    events: EventI[]
+    events: EventI[],
+    loading: boolean
 }
 
 const initialState: InitialStateI = {
-    events: []
+    events: [],
+    loading: true
 }
 
 export const reducer = (state: InitialStateI = initialState , action: Action) => {
@@ -15,6 +17,12 @@ export const reducer = (state: InitialStateI = initialState , action: Action) =>
             return {
                 ...state,
                 events: action.payload
+            }
+        }
+        case ActionsTypes.setLoading: {
+            return {
+                ...state,
+                loading: action.payload
             }
         }
         default:

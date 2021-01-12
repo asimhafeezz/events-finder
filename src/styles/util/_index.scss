@@ -1,0 +1,7 @@
+.spinner {
+    @include flex-center;
+    height: 80vh;
+    img{
+        width: 40px;
+    }
+}

@@ -6,7 +6,7 @@
 
 @mixin grid {
     display: grid;
-    gap: .7rem;
+    gap: .9rem;
 }
 
 @mixin cards-grid {
@@ -25,6 +25,7 @@
 @mixin flex-center {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 @mixin flex-end {

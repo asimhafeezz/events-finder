@@ -1,7 +1,8 @@
-import { FetchEventActionI } from './action';
+import { FetchEventActionI, LoadingEventActionI } from './action';
 
 export enum ActionsTypes {
-    fetchEvents
+    fetchEvents,
+    setLoading
 }
 
-export type Action = FetchEventActionI
+export type Action = FetchEventActionI | LoadingEventActionI

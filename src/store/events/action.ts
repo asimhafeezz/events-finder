@@ -4,19 +4,20 @@ import { ActionsTypes as types } from './types'
 
 const url: string = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=sK6sqAtjpwLuOky6TFLJVidiimUvGYaB"  
 
-export interface TodoI {
-    id: number,
-    title: string,
-    completed: boolean
-}
 
 export interface FetchEventActionI {
     type: types.fetchEvents,
     payload: EventI[]
 }
 
+export interface LoadingEventActionI {
+    type: types.setLoading,
+    payload: boolean
+}
+
 export interface UseActionI {
-    fetchEvents: () => Promise<void>
+    fetchEvents: () => Promise<void>,
+    setEventsLoading: (loadingState: boolean) => void
 }
 
 
@@ -55,17 +56,29 @@ interface ResEventDataI {
 export const useAction = (): UseActionI => {
     const dispatch = useDispatch()
 
+    //a function for fetching events
     const fetchEvents = async (): Promise<void> => {
     const res = await axios.get<ResEventDataI>(url)
 
-    console.log(res.data)
+    setEventsLoading(false)
 
     dispatch<FetchEventActionI>({
         type: types.fetchEvents,
         payload: res.data._embedded.events
     })
     }
+
+    //a function for setting loading state
+    const setEventsLoading = (loadingState: boolean): void => {
+        dispatch<LoadingEventActionI>({
+            type: types.setLoading,
+            payload: loadingState 
+        })
+    }
+
+
     return {
-        fetchEvents
+        fetchEvents,
+        setEventsLoading
     }
 }
