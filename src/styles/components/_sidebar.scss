@@ -1,0 +1,39 @@
+.sidebar{
+    // @include flex-center;
+    // flex-direction: column;
+    // align-items: flex-start;
+    // gap: 1rem;
+    select{
+        padding: .3rem;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 1.4rem 0;
+        width: 100%;
+        min-width: 300px;
+    }
+    
+    h1{
+        margin: 2rem 0;
+        margin-bottom: .6rem;
+        font-weight: 500;
+        color: rgb(3, 154, 255);
+    }
+
+    .button-section{
+        @include flex-end;
+            button{
+                padding: .5rem;
+                font-size: 1rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                border: 0;
+                background-color: rgb(46, 98, 211);
+                cursor: pointer;
+                color: azure;
+                border-radius: .2rem;
+                &:hover{
+                    background-color: rgb(40, 79, 163);
+                }
+            }
+    }
+}

@@ -4,7 +4,7 @@ import {Card} from "./card"
 import { StoreStateT } from '../../store/rootReducer'
 //redux
 import { useSelector } from 'react-redux'
-import { Spinner } from "../../util/spinner"
+import { Spinner } from "../util/spinner"
 
 export const Cards: React.FC = () => {
     const events = useSelector((state: StoreStateT) => state.events.events)

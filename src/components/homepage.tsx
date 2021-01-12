@@ -3,6 +3,7 @@ import { Cards } from "./cards"
 
 //use events actions hook
 import { useAction } from '../store/events/action'
+import { Sidebar } from "./sideBar"
 
 export const Homepage: React.FC = () => {
     const { fetchEvents, setEventsLoading } = useAction()
@@ -11,8 +12,10 @@ export const Homepage: React.FC = () => {
         setEventsLoading(true)
         fetchEvents()
     },[])
+    
     return(
         <div className="homepage-grid">
+            <Sidebar />
             <Cards />
         </div>
     )
