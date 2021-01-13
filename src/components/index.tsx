@@ -1,3 +1,3 @@
 import {Cards} from './cards'
-import {Homepage} from './homepage'
+import {Homepage} from './home'
 export {Cards , Homepage}
