@@ -10,6 +10,14 @@
             font-weight: 500;
             margin-top: .5rem;
             font-size: 1.1rem;
+            cursor: pointer;
+            display: inline-block;
+            transition: padding .25s;
+            &:hover{
+                color:rgb(14, 113, 179);
+                border-left: 3px solid rgb(14, 113, 179);
+                padding-left: .3rem;
+            }
         }
         h4{
             font-weight: 500;

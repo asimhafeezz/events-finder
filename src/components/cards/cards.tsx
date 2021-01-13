@@ -13,7 +13,11 @@ export interface QueryParamsFetchEventsI {
     page?: number,
 }
 
-export const Cards: React.FC = () => {
+interface CardsPropsI {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const Cards: React.FC<CardsPropsI> = ({setOpen}) => {
 
     const { fetchEvents, setEventsLoading } = useAction()
 
@@ -38,7 +42,7 @@ export const Cards: React.FC = () => {
         <div className="cards">
             {
                 events.map((event , i) => (
-                    <Card key={i} {...event} />
+                    <Card key={i} setOpen={setOpen} event={event} />
                 ))
             }
         </div>
