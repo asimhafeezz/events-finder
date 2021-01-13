@@ -1,3 +1,4 @@
+import { QueryParamsFetchEventsI } from './../../components/cards/cards';
 import { useDispatch } from "react-redux"
 import axios from 'axios'
 import { ActionsTypes as types } from './types'
@@ -16,7 +17,7 @@ export interface LoadingEventActionI {
 }
 
 export interface UseActionI {
-    fetchEvents: () => Promise<void>,
+    fetchEvents: (queryParams: QueryParamsFetchEventsI) => Promise<void>,
     setEventsLoading: (loadingState: boolean) => void
 }
 
@@ -57,8 +58,8 @@ export const useAction = (): UseActionI => {
     const dispatch = useDispatch()
 
     //a function for fetching events
-    const fetchEvents = async (): Promise<void> => {
-    const res = await axios.get<ResEventDataI>(url)
+    const fetchEvents = async ({page}: QueryParamsFetchEventsI): Promise<void> => {
+    const res = await axios.get<ResEventDataI>(url + `&page=${page}`)
 
     setEventsLoading(false)
 

@@ -1,7 +1,6 @@
 .homepage-grid {
     @include grid;
     grid-template-columns: 1fr 5fr;
-    gap: 1.5rem;
 
     @include smallThan (800px) {
         grid-template-columns: 1fr;
