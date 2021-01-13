@@ -59,6 +59,7 @@ export const useAction = (): UseActionI => {
 
     //a function for fetching events
     const fetchEvents = async ({page}: QueryParamsFetchEventsI): Promise<void> => {
+    setEventsLoading(true)
     const res = await axios.get<ResEventDataI>(url + `&page=${page}`)
 
     setEventsLoading(false)

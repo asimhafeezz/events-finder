@@ -11,24 +11,23 @@ import { useAction } from "../../store/events/action"
 
 export interface QueryParamsFetchEventsI {
     page?: number,
+    id?: string
 }
 
 interface CardsPropsI {
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const Cards: React.FC<CardsPropsI> = ({setOpen}) => {
+export const Cards: React.FC<CardsPropsI> = () => {
 
-    const { fetchEvents, setEventsLoading } = useAction()
+    const { fetchEvents } = useAction()
 
     //local state
     const [page , setPage] = useState<number>(1)
 
     // call on render
     useEffect(()=>{
-        setEventsLoading(true)
         const queryParams: QueryParamsFetchEventsI = {
-            page: page 
+            page: page
         }
         fetchEvents(queryParams)
     },[page])
@@ -42,14 +41,14 @@ export const Cards: React.FC<CardsPropsI> = ({setOpen}) => {
         <div className="cards">
             {
                 events.map((event , i) => (
-                    <Card key={i} setOpen={setOpen} event={event} />
+                    <Card key={i} event={event} />
                 ))
             }
         </div>
         <section className="pagination-section">
         <Pagination
         page={page}
-        onChange={(e, value) => setPage(value)}
+        onChange={(_, value) => setPage(value)}
         count={49}
         color="primary"
         defaultPage={1}
