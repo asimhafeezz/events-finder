@@ -27,7 +27,10 @@ export const Detailpage: React.FC<DetailpageProps> = (props) => {
     
     return loading ? <Spinner /> : (
         <div className="detailpage">
+            <h1>{event.name}</h1>
+            <hr />
             <ImageSlider images={event.images} />
+            <hr />
         </div>
     )
 }

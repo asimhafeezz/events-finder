@@ -1,8 +1,20 @@
+.detailpage{
+    @include container;
+    max-width: 800px;
+    h1{
+        margin: 1rem 0;
+        font-weight: 500;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        color: rgb(3, 154, 255);
+    }
 .image-slider{
     @include horizontal-scroller-container;
-    height: 300px;
-    .image-slider-img-section{
-        min-width: 200px;
-        margin-right: .5rem;
+    height: 200px;
+    img{
+        width: 300px;
+        height: 200px;
+        padding-right: .5rem;
     }
+}
 }
