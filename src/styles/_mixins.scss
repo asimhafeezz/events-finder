@@ -38,6 +38,17 @@
     @content;
 }
 
+@mixin horizontal-scroller-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+      
+      &::-webkit-scrollbar {
+        display: none;
+      }
+}
+
 //media quires
 @mixin smallThan ($pixels) {
     @media (max-width: $pixels) {

@@ -1,0 +1,8 @@
+.image-slider{
+    @include horizontal-scroller-container;
+    height: 300px;
+    .image-slider-img-section{
+        min-width: 200px;
+        margin-right: .5rem;
+    }
+}

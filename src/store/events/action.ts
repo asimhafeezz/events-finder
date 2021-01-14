@@ -11,6 +11,16 @@ export interface FetchEventActionI {
     payload: EventI[]
 }
 
+export interface FetchAllEventActionI {
+    type: types.fetchAllEvents,
+    payload: EventI[]
+}
+
+export interface FetchEventByActionI {
+    type: types.fetchEventById,
+    payload: EventI
+}
+
 export interface LoadingEventActionI {
     type: types.setLoading,
     payload: boolean
@@ -18,7 +28,9 @@ export interface LoadingEventActionI {
 
 export interface UseActionI {
     fetchEvents: (queryParams: QueryParamsFetchEventsI) => Promise<void>,
-    setEventsLoading: (loadingState: boolean) => void
+    fetchAllEvents: () => Promise<void>,
+    setEventsLoading: (loadingState: boolean) => void,
+    fetchEventById: (id: string, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => Promise<void>
 }
 
 
@@ -70,6 +82,29 @@ export const useAction = (): UseActionI => {
     })
     }
 
+    //a function for fetching just all events
+    const fetchAllEvents = async (): Promise<void> => {
+    const res = await axios.get<ResEventDataI>(url)
+
+    dispatch<FetchAllEventActionI>({
+        type: types.fetchAllEvents,
+        payload: res.data._embedded.events
+    })
+    }
+
+    //a function for fetching a specific event by id
+    const fetchEventById = async (id: string , setLoading: React.Dispatch<React.SetStateAction<boolean>>): Promise<void> => {
+        const res = await axios.get<ResEventDataI>(url + `&id=${id}`)
+        dispatch<FetchEventByActionI>({
+            type: types.fetchEventById,
+            payload: res.data._embedded.events[0]
+        })
+
+        setLoading(false)
+        console.log("specific event" , res.data._embedded.events[0])
+    
+        }
+
     //a function for setting loading state
     const setEventsLoading = (loadingState: boolean): void => {
         dispatch<LoadingEventActionI>({
@@ -81,6 +116,8 @@ export const useAction = (): UseActionI => {
 
     return {
         fetchEvents,
-        setEventsLoading
+        setEventsLoading,
+        fetchAllEvents,
+        fetchEventById
     }
 }

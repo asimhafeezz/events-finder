@@ -3,12 +3,16 @@ import { Action, ActionsTypes } from "./types";
 
 export interface InitialStateI {
     events: EventI[],
-    loading: boolean
+    loading: boolean,
+    allEvents: EventI[],
+    event: EventI
 }
 
 const initialState: InitialStateI = {
     events: [],
-    loading: true
+    loading: true,
+    allEvents:[],
+    event: {} as EventI
 }
 
 export const reducer = (state: InitialStateI = initialState , action: Action) => {
@@ -23,6 +27,18 @@ export const reducer = (state: InitialStateI = initialState , action: Action) =>
             return {
                 ...state,
                 loading: action.payload
+            }
+        }
+        case ActionsTypes.fetchAllEvents: {
+            return {
+                ...state,
+                allEvents: action.payload
+            }
+        }
+        case ActionsTypes.fetchEventById: {
+            return {
+                ...state,
+                event: action.payload
             }
         }
         default:
