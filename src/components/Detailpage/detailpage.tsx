@@ -33,19 +33,25 @@ export const Detailpage: React.FC<DetailpageProps> = (props) => {
             <hr />
             <h5>Starting Data: <span style={{color: 'gray'}}>{event.dates.start.localDate}</span></h5>
             <h5>Venue: <span style={{color: 'gray'}}>{event._embedded?.venues[0].name}</span></h5>
-            <hr />
-            {/* products */}
-            <h5>Products</h5>
-            <section className="products">
-                {
-                    event.products?.map((item , i) => (
-                        <h6 key={item.id}><a href={item.url} target="blank">{i+1}: {item.name}</a></h6>
-                        ))
-                    }
-            </section>
-            <hr />
+            {
+                event.products && (
+                    <>
+                    <hr />
+                    {/* products */}
+                    <h5>Products</h5>
+                    <section className="products">
+                        {
+                            event.products?.map((item , i) => (
+                                <h6 key={item.id}><a href={item.url} target="blank">{i+1}: {item.name}</a></h6>
+                                ))
+                            }
+                    </section>
+                    <hr />
+                    </>
+                )
+            }
             <section className="button-section">
-            <button><a href={event.url}>Buy Event Ticket</a></button>
+            <button><a href={event.url} target="blank">Buy Event Ticket</a></button>
             </section>
         </div>
     )
