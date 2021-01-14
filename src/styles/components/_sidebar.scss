@@ -20,7 +20,7 @@
     h1{
         margin-bottom: .6rem;
         font-weight: 500;
-        color: rgb(3, 154, 255);
+        color: $light-blue;
     }
 
     .button-section{
@@ -31,12 +31,12 @@
                 font-weight: 500;
                 text-transform: uppercase;
                 border: 0;
-                background-color: rgb(46, 98, 211);
+                background-color: $light-blue;
                 cursor: pointer;
-                color: azure;
+                color: $white;
                 border-radius: .2rem;
                 &:hover{
-                    background-color: rgb(40, 79, 163);
+                    background-color: $dark-blue;
                 }
             }
     }

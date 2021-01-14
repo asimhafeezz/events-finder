@@ -6,7 +6,7 @@
     .card{
         @include card;
         h3{
-            color: rgb(3, 154, 255);
+            color: $light-blue;
             font-weight: 500;
             margin-top: .5rem;
             font-size: 1.1rem;
@@ -14,8 +14,8 @@
             display: inline-block;
             transition: padding .25s;
             &:hover{
-                color:rgb(14, 113, 179);
-                border-left: 3px solid rgb(14, 113, 179);
+                color:$dark-blue;
+                border-left: 3px solid $dark-blue;
                 padding-left: .3rem;
             }
         }

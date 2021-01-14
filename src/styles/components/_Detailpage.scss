@@ -6,7 +6,7 @@
         font-weight: 500;
         font-size: 1.8rem;
         text-transform: uppercase;
-        color: rgb(3, 154, 255);
+        color: $light-blue;
     }
 .image-slider{
     @include horizontal-scroller-container;
@@ -16,5 +16,26 @@
         height: 200px;
         padding-right: .5rem;
     }
+}
+// .products{
+//     // display: flex;
+//     // flex-wrap: wrap;
+// }
+.button-section{
+    @include flex-end;
+    button{
+        border: 0;
+        border-radius: .2rem;
+        padding: .4rem .7rem;
+        background-color: $light-blue;
+        color: $white;
+        a{
+            color: $white;
+            text-decoration: none;
+        }
+        &:hover{
+            background-color: $dark-blue;
+        }
+}
 }
 }
