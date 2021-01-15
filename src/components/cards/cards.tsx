@@ -13,7 +13,10 @@ import { FilterationValuesI } from "../home";
 export interface QueryParamsFetchEventsI {
     page?: number,
     id?: string,
-    keyword?: string
+    keyword?: string,
+    startDateTime?: string,
+    endDateTime?: string,
+    countryCode?: string
 }
 
 interface CardsPropsI {
@@ -29,9 +32,13 @@ export const Cards: React.FC<CardsPropsI> = ({filterationValues}) => {
 
     // call on render
     useEffect(()=>{
+        const {keyword , startDateTime , endDateTime , countryCode} = filterationValues
         const queryParams: QueryParamsFetchEventsI = {
             page: page,
-            keyword: filterationValues.keyword
+            keyword,
+            startDateTime,
+            endDateTime,
+            countryCode
         }
         fetchEvents(queryParams)
     },[page, filterationValues])
@@ -43,7 +50,7 @@ export const Cards: React.FC<CardsPropsI> = ({filterationValues}) => {
 	return loadingEvents ? <Spinner /> : (
         <div className="cards-container">
             {
-                events.length === 0 ? <section className="center">
+                events && events.length === 0 ? <section className="center">
                     <h3>Not Found</h3>
                 </section> : (
 <>
@@ -61,6 +68,7 @@ export const Cards: React.FC<CardsPropsI> = ({filterationValues}) => {
         onChange={(_, value) => setPage(value)}
         count={47}
         color="primary"
+        style={{color: 'azure'}}
         defaultPage={1}
       />
         </section>

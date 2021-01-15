@@ -31,7 +31,7 @@ export const Detailpage: React.FC<DetailpageProps> = (props) => {
             <hr />
             <ImageSlider images={event.images} />
             <hr />
-            <h5>Starting Data: <span style={{color: 'gray'}}>{event.dates.start.localDate}</span></h5>
+            <h5>Starting Data: <span style={{color: 'gray'}}>{event.dates.start.dateTime}</span></h5>
             <h5>Venue: <span style={{color: 'gray'}}>{event._embedded?.venues[0].name}</span></h5>
             {
                 event.products && (

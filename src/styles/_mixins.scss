@@ -36,7 +36,7 @@
 
 @mixin card {
     min-width: 0;
-    border: .2px solid $light-gray;
+    border: 2px solid $light-gray;
     border-radius: .5rem;
     padding: 1rem;
     @content;

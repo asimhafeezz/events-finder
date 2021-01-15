@@ -5,13 +5,17 @@ import { Sidebar } from "./sideBar"
 //interfaces
 export interface FilterationValuesI {
     keyword: string,
-    country: string
+    startDateTime: any,
+    endDateTime: any,
+    countryCode: string
 }
 
 export const Homepage: React.FC = () => {
     const [filterationValues , setFilterationValues] = useState<FilterationValuesI>({
         keyword: '',
-        country: ''
+        startDateTime: '',
+        endDateTime: '',
+        countryCode: ''
     })
     return(
         <div className="homepage-grid">

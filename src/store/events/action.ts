@@ -4,6 +4,7 @@ import axios from 'axios'
 import { ActionsTypes as types } from './types'
 
 const url: string = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=sK6sqAtjpwLuOky6TFLJVidiimUvGYaB"  
+const countries_url: string = "https://api.first.org/data/v1/countries"
 
 
 export interface FetchEventActionI {
@@ -11,12 +12,12 @@ export interface FetchEventActionI {
     payload: EventI[]
 }
 
-export interface FetchAllEventActionI {
-    type: types.fetchAllEvents,
-    payload: EventI[]
+export interface FetchAllCountriesActionI {
+    type: types.fetchAllCountries,
+    payload: any
 }
 
-export interface FetchEventByActionI {
+export interface FetchEventByIdActionI {
     type: types.fetchEventById,
     payload: EventI
 }
@@ -28,7 +29,7 @@ export interface LoadingEventActionI {
 
 export interface UseActionI {
     fetchEvents: (queryParams: QueryParamsFetchEventsI) => Promise<void>,
-    fetchAllEvents: () => Promise<void>,
+    fetchAllCountries: () => Promise<void>,
     setEventsLoading: (loadingState: boolean) => void,
     fetchEventById: (id: string, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => Promise<void>
 }
@@ -43,7 +44,7 @@ export interface EventI {
     }[],
     dates: {
         start: {
-            localDate: string
+            dateTime: string
         }
     },
     products?:{
@@ -65,14 +66,13 @@ interface ResEventDataI {
 }
 
 
-
 export const useAction = (): UseActionI => {
     const dispatch = useDispatch()
 
     //a function for fetching events
-    const fetchEvents = async ({page , keyword}: QueryParamsFetchEventsI): Promise<void> => {
+    const fetchEvents = async ({page , keyword, startDateTime , endDateTime , countryCode}: QueryParamsFetchEventsI): Promise<void> => {
     setEventsLoading(true)
-    const res = await axios.get<ResEventDataI>(url + `&page=${page}&size=21&keyword=${keyword}`)
+    const res = await axios.get<ResEventDataI>(url + `&page=${page}&size=21&keyword=${keyword}&countryCode=${countryCode}&startDateTime=${startDateTime && `${startDateTime}:00Z`}&endDateTime=${endDateTime && `${endDateTime}:00Z`}`)
 
     setEventsLoading(false)
 
@@ -83,19 +83,21 @@ export const useAction = (): UseActionI => {
     }
 
     //a function for fetching just all events
-    const fetchAllEvents = async (): Promise<void> => {
-    const res = await axios.get<ResEventDataI>(url)
+    const fetchAllCountries = async (): Promise<void> => {
+    const res = await axios.get<any>(countries_url)
 
-    dispatch<FetchAllEventActionI>({
-        type: types.fetchAllEvents,
-        payload: res.data._embedded.events
+    console.log(Object.keys(res.data.data).map(item => item))
+
+    dispatch<FetchAllCountriesActionI>({
+        type: types.fetchAllCountries,
+        payload: Object.keys(res.data.data).map(item => item)
     })
     }
 
     //a function for fetching a specific event by id
     const fetchEventById = async (id: string , setLoading: React.Dispatch<React.SetStateAction<boolean>>): Promise<void> => {
         const res = await axios.get<ResEventDataI>(url + `&id=${id}`)
-        dispatch<FetchEventByActionI>({
+        dispatch<FetchEventByIdActionI>({
             type: types.fetchEventById,
             payload: res.data._embedded.events[0]
         })
@@ -117,7 +119,7 @@ export const useAction = (): UseActionI => {
     return {
         fetchEvents,
         setEventsLoading,
-        fetchAllEvents,
+        fetchAllCountries,
         fetchEventById
     }
 }

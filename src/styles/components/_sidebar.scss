@@ -1,11 +1,15 @@
 .sidebar{
     @include container;
-    max-width: 700px;
+    max-width: 1000px;
     form{
         @include grid;
-        grid-template-columns: repeat(2 , 1fr);
+        grid-template-columns: repeat(4 , 1fr);
         gap: 1rem;
         margin: .7rem 0;
+
+        @include smallThan (750px){
+            grid-template-columns: 1fr 1fr;
+        }
         
         @include smallThan (650px){
             grid-template-columns: 1fr;
@@ -16,35 +20,32 @@
         font-size: 1rem;
         font-weight: 500;
         width: 100%;
-        min-width: 300px;
         border-radius: .2rem;
-        border: 2px solid black;
+        border: 2px solid $white;
+        background-color: $dark-gray;
         cursor: pointer;
-
+        
         &:focus{
             border-color: $dark-blue;
         }
-
-        @include smallThan (900px){
-            min-width: 200px;
-        }
+        
     }
-
-    input[type="text"]{
+    
+    input{
         padding: .3rem;
         font-size: 1rem;
         font-weight: 500;
         width: 100%;
-        min-width: 300px;
+        background-color: $dark-gray;
         border-radius: .2rem;
-        border: 2px solid black;
+        border: 2px solid $white;
+
+        &::placeholder{
+            color: $white;
+        }
 
         &:focus{
             border-color: $dark-blue;
-        }
-
-        @include smallThan (900px){
-            min-width: 200px;
         }
     }
 

@@ -1,10 +1,10 @@
-import { FetchEventActionI, LoadingEventActionI, FetchAllEventActionI , FetchEventByActionI} from './action';
+import { FetchEventActionI, LoadingEventActionI, FetchAllCountriesActionI , FetchEventByIdActionI} from './action';
 
 export enum ActionsTypes {
     fetchEvents,
     setLoading,
-    fetchAllEvents,
+    fetchAllCountries,
     fetchEventById
 }
 
-export type Action = FetchEventActionI | LoadingEventActionI | FetchAllEventActionI | FetchEventByActionI
+export type Action = FetchEventActionI | LoadingEventActionI | FetchAllCountriesActionI | FetchEventByIdActionI
