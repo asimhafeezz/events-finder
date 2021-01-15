@@ -28,6 +28,15 @@ export const Sidebar: React.FC<SidebarI> = ({ filterationValues , setFilteration
         } as FilterationValuesI)
     }
 
+    const resetFilteration = () => {
+        setFilterationValues({
+            keyword: '',
+            countryCode: '',
+            startDateTime: '',
+            endDateTime: ''
+        })
+    }
+
     return(
         <div className="sidebar">
             <h1>Event Finder</h1>
@@ -60,11 +69,9 @@ export const Sidebar: React.FC<SidebarI> = ({ filterationValues , setFilteration
                 value={filterationValues.endDateTime}
                 onChange={onChangeHandler}
                 />
+                <button onClick={resetFilteration}>Reset</button>
                 </form>
 
-            {/* <section className="button-section">
-                <button>Filter</button>
-            </section> */}
         </div>
     )
 }
