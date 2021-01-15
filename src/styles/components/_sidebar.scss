@@ -1,76 +1,76 @@
-.sidebar{
-    @include container;
-    form{
-        @include grid;
-        grid-template-columns: repeat(4 , 1fr) .5fr ;
-        gap: 1rem;
-        margin: .7rem 0;
+.sidebar {
+	@include container;
+	padding: 0;
+	form {
+		@include grid;
+		grid-template-columns: repeat(4, 1fr) 0.4fr;
+		gap: 1rem;
+		margin: 1.3rem 0;
 
-        @include smallThan (850px){
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+		@include smallThan(850px) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
 
-        @include smallThan (750px){
-            grid-template-columns: 1fr 1fr;
-        }
-        
-        @include smallThan (650px){
-            grid-template-columns: 1fr;
-        }
-    }
-    select{
-        padding: .3rem;
-        font-size: 1rem;
-        font-weight: 500;
-        width: 100%;
-        border-radius: .2rem;
-        border: 2px solid $white;
-        background-color: $dark-gray;
-        cursor: pointer;
-        
-        &:focus{
-            border-color: $dark-blue;
-        }
-        
-    }
-    
-    input{
-        padding: .3rem;
-        font-size: 1rem;
-        font-weight: 500;
-        width: 100%;
-        background-color: $dark-gray;
-        border-radius: .2rem;
-        border: 2px solid $white;
+		@include smallThan(750px) {
+			grid-template-columns: 1fr 1fr;
+		}
 
-        &::placeholder{
-            color: $white;
-        }
+		@include smallThan(650px) {
+			grid-template-columns: 1fr;
+		}
+	}
+	select {
+		padding: 0.3rem;
+		font-size: 1rem;
+		font-weight: 500;
+		width: 100%;
+		border-radius: 0.2rem;
+		border: 2px solid $white;
+		background-color: $dark-gray;
+		cursor: pointer;
 
-        &:focus{
-            border-color: $dark-blue;
-        }
-    }
+		&:focus {
+			border-color: $dark-blue;
+		}
+	}
 
-    h1{
-        margin-bottom: 1rem;
-        font-weight: 500;
-        color: $light-blue;
-        text-align: center;
-    }
+	input {
+		padding: 0.3rem;
+		font-size: 1rem;
+		font-weight: 500;
+		width: 100%;
+		background-color: $dark-gray;
+		border-radius: 0.2rem;
+		border: 2px solid $white;
 
-    button{
-        padding: .5rem;
-        font-size: 1rem;
-        font-weight: 500;
-        text-transform: uppercase;
-        border: 0;
-        background-color: $light-blue;
-        cursor: pointer;
-        color: $white;
-        border-radius: .2rem;
-        &:hover{
-            background-color: $dark-blue;
-        }
-    }
+		&::placeholder {
+			color: $white;
+		}
+
+		&:focus {
+			border-color: $dark-blue;
+		}
+	}
+
+	h1 {
+		margin-bottom: 1rem;
+		font-weight: 600;
+		color: $light-blue;
+		text-align: center;
+	}
+
+	button {
+		padding: 0.5rem;
+		font-size: 1rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		border: 0;
+		background-color: $light-blue;
+		cursor: pointer;
+		color: $white;
+		border-radius: 0.2rem;
+		&:hover {
+			background-color: $dark-blue;
+		}
+	}
 }

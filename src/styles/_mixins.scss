@@ -1,61 +1,61 @@
 @mixin container {
-    margin: 0rem auto;
-    max-width: 1150px;
-    padding: .5rem .7rem;
+	margin: 0rem auto;
+	max-width: 1150px;
+	padding: 0.5rem 0.7rem;
 }
 
 @mixin grid {
-    display: grid;
-    gap: .9rem;
+	display: grid;
+	gap: 0.9rem;
 }
 
 @mixin cards-grid {
-    @include grid;
-    grid-template-columns: repeat(3 , 1fr);
+	@include grid;
+	grid-template-columns: repeat(3, 1fr);
 
-    @include smallThan(780px){
-        grid-template-columns: 1fr 1fr;
-    }
+	@include smallThan(780px) {
+		grid-template-columns: 1fr 1fr;
+	}
 
-    @include smallThan(580px){
-        grid-template-columns: 1fr;
-    }
+	@include smallThan(580px) {
+		grid-template-columns: 1fr;
+	}
 }
 
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @mixin flex-end {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 @mixin card {
-    min-width: 0;
-    border: 2px solid $light-gray;
-    border-radius: .5rem;
-    padding: 1rem;
-    @content;
+	min-width: 0;
+	border: 2px solid $light-gray;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	@content;
 }
 
 @mixin horizontal-scroller-container {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-      
-      &::-webkit-scrollbar {
-        display: none;
-      }
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 //media quires
-@mixin smallThan ($pixels) {
-    @media (max-width: $pixels) {
-        @content
-    }
+@mixin smallThan($pixels) {
+	@media (max-width: $pixels) {
+		@content;
+	}
 }

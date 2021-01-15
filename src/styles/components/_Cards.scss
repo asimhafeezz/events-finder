@@ -1,40 +1,43 @@
-.cards-container
-{
-    .cards{
-    @include cards-grid;
-    margin: 1rem 0;;
+.cards-container {
+	.cards {
+		@include cards-grid;
+		margin: 1rem 0;
 
-    .card{
-        @include card;
-        h3{
-            color: $light-blue;
-            font-weight: 500;
-            margin-top: .5rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: inline-block;
-            transition: padding .25s;
-            &:hover{
-                color:$dark-blue;
-                border-left: 3px solid $dark-blue;
-                padding-left: .3rem;
-            }
-        }
-        h4{
-            font-weight: 500;
-        }
-        img{
-            width: 100%;
-            border-radius: .5rem;
-        }
-    }
-
+		.card {
+			@include card;
+			h3 {
+				color: $light-blue;
+				font-weight: 500;
+				margin-top: 0.5rem;
+				font-size: 1.1rem;
+				cursor: pointer;
+				display: inline-block;
+				transition: padding 0.25s;
+				&:hover {
+					color: $dark-blue;
+					border-left: 3px solid $dark-blue;
+					padding-left: 0.3rem;
+				}
+			}
+			h4 {
+				font-weight: 500;
+			}
+			img {
+				width: 100%;
+				object-fit: inherit;
+				height: 230px;
+				border-radius: 0.5rem;
+				@include smallThan(580px) {
+					height: auto;
+				}
+			}
+		}
+	}
+	.pagination-section {
+		@include flex-center;
+		margin: 2rem 0;
+	}
 }
-.pagination-section{
-    @include flex-center;
-    margin: 2rem 0;
-}
-}
-.MuiPagination-root{
-    color: $white;
+.MuiPagination-root {
+	color: $white;
 }
