@@ -1,11 +1,11 @@
 .homepage-grid {
     transition: .25s;
-    @include grid;
-    grid-template-columns: 1fr 5fr;
+    // @include grid;
+    // grid-template-columns: 1fr 5fr;
 
-    margin: 2rem 0;
+    // margin: 2rem 0;
 
-    @include smallThan (800px) {
-        grid-template-columns: 1fr;
-    }
+    // @include smallThan (800px) {
+    //     grid-template-columns: 1fr;
+    // }
 }

@@ -11,9 +11,13 @@
 
 @mixin cards-grid {
     @include grid;
-    grid-template-columns: repeat(2 , 1fr);
+    grid-template-columns: repeat(3 , 1fr);
 
-    @include smallThan(680px){
+    @include smallThan(780px){
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include smallThan(580px){
         grid-template-columns: 1fr;
     }
 }

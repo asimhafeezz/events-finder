@@ -2,6 +2,7 @@
 {
     .cards{
     @include cards-grid;
+    margin: 1rem 0;;
 
     .card{
         @include card;

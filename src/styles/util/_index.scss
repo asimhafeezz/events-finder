@@ -77,3 +77,11 @@
         // transform: translate(-50%, -50%);
     }
 }
+
+
+//util classes
+.center{
+    @include flex-center;
+    align-items: center;
+    height: 70vh;
+}

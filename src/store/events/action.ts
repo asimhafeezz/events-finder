@@ -70,15 +70,15 @@ export const useAction = (): UseActionI => {
     const dispatch = useDispatch()
 
     //a function for fetching events
-    const fetchEvents = async ({page}: QueryParamsFetchEventsI): Promise<void> => {
+    const fetchEvents = async ({page , keyword}: QueryParamsFetchEventsI): Promise<void> => {
     setEventsLoading(true)
-    const res = await axios.get<ResEventDataI>(url + `&page=${page}`)
+    const res = await axios.get<ResEventDataI>(url + `&page=${page}&size=21&keyword=${keyword}`)
 
     setEventsLoading(false)
 
     dispatch<FetchEventActionI>({
         type: types.fetchEvents,
-        payload: res.data._embedded.events
+        payload: res.data._embedded?.events || []
     })
     }
 

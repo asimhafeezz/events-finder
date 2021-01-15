@@ -8,16 +8,19 @@ import { useSelector } from 'react-redux'
 import { Spinner } from "../util/spinner"
 import { useEffect, useState } from "react"
 import { useAction } from "../../store/events/action"
+import { FilterationValuesI } from "../home";
 
 export interface QueryParamsFetchEventsI {
     page?: number,
-    id?: string
+    id?: string,
+    keyword?: string
 }
 
 interface CardsPropsI {
+    filterationValues: FilterationValuesI
 }
 
-export const Cards: React.FC<CardsPropsI> = () => {
+export const Cards: React.FC<CardsPropsI> = ({filterationValues}) => {
 
     const { fetchEvents } = useAction()
 
@@ -27,10 +30,11 @@ export const Cards: React.FC<CardsPropsI> = () => {
     // call on render
     useEffect(()=>{
         const queryParams: QueryParamsFetchEventsI = {
-            page: page
+            page: page,
+            keyword: filterationValues.keyword
         }
         fetchEvents(queryParams)
-    },[page])
+    },[page, filterationValues])
 
     //store state
     const events = useSelector((state: StoreStateT) => state.events.events)
@@ -38,22 +42,31 @@ export const Cards: React.FC<CardsPropsI> = () => {
     
 	return loadingEvents ? <Spinner /> : (
         <div className="cards-container">
+            {
+                events.length === 0 ? <section className="center">
+                    <h3>Not Found</h3>
+                </section> : (
+<>
         <div className="cards">
             {
-                events.map((event , i) => (
+                events && events.map((event , i) => (
                     <Card key={i} event={event} />
                 ))
             }
         </div>
+
         <section className="pagination-section">
         <Pagination
         page={page}
         onChange={(_, value) => setPage(value)}
-        count={49}
+        count={47}
         color="primary"
         defaultPage={1}
       />
         </section>
+        </>
+                )
+            }
         </div>
 	)
 }
