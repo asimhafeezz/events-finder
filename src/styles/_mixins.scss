@@ -13,7 +13,7 @@
 	@include grid;
 	grid-template-columns: repeat(3, 1fr);
 
-	@include smallThan(780px) {
+	@include smallThan(850px) {
 		grid-template-columns: 1fr 1fr;
 	}
 

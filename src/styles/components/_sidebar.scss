@@ -44,11 +44,14 @@
 		border: 2px solid $white;
 
 		&::placeholder {
-			color: $white;
+			color: $gray;
 		}
 
 		&:focus {
 			border-color: $dark-blue;
+		}
+		&::-webkit-calendar-picker-indicator {
+			filter: invert(1);
 		}
 	}
 
@@ -65,12 +68,14 @@
 		font-weight: 500;
 		text-transform: uppercase;
 		border: 0;
-		background-color: $light-blue;
+		border: 2px solid $white;
+		background-color: $dark-gray;
 		cursor: pointer;
 		color: $white;
 		border-radius: 0.2rem;
 		&:hover {
-			background-color: $dark-blue;
+			border-color: $dark-blue;
+			color: $dark-blue;
 		}
 	}
 }
