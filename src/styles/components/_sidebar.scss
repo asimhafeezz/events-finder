@@ -1,7 +1,7 @@
 .sidebar {
 	@include container;
 	padding: 0;
-	form {
+	section {
 		@include grid;
 		grid-template-columns: repeat(4, 1fr) 0.4fr;
 		gap: 1rem;

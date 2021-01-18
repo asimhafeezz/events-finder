@@ -1,6 +1,7 @@
 .detailpage {
 	@include container;
 	max-width: 800px;
+	padding: 0;
 
 	h1 {
 		margin: 1rem 0;

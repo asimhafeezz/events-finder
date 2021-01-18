@@ -45,7 +45,7 @@ export const Sidebar: React.FC<SidebarI> = ({
 	return (
 		<div className='sidebar'>
 			<h1>Events Finder</h1>
-			<form>
+			<section>
 				<input
 					type='text'
 					name='keyword'
@@ -84,7 +84,7 @@ export const Sidebar: React.FC<SidebarI> = ({
 					onChange={onChangeHandler}
 				/>
 				<button onClick={resetFilteration}>Reset</button>
-			</form>
+			</section>
 		</div>
 	)
 }
