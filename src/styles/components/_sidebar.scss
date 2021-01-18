@@ -10,11 +10,9 @@
 		@include smallThan(850px) {
 			grid-template-columns: 1fr 1fr 1fr;
 		}
-
 		@include smallThan(750px) {
 			grid-template-columns: 1fr 1fr;
 		}
-
 		@include smallThan(650px) {
 			grid-template-columns: 1fr;
 		}
