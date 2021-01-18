@@ -6,7 +6,7 @@
 
 @mixin grid {
 	display: grid;
-	gap: 0.9rem;
+	gap: 1.2rem;
 }
 
 @mixin cards-grid {
@@ -36,7 +36,10 @@
 
 @mixin card {
 	min-width: 0;
-	border: 2px solid $light-gray;
+	// border: 2px solid $light-gray;
+	-moz-box-shadow: 0 0 8px #000000;
+	-webkit-box-shadow: 0 0 8px #000000;
+	box-shadow: 0 0 8px #000000;
 	border-radius: 0.5rem;
 	padding: 1rem;
 	@content;

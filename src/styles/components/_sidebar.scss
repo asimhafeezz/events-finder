@@ -25,7 +25,7 @@
 		font-weight: 500;
 		width: 100%;
 		border-radius: 0.2rem;
-		border: 2px solid $white;
+		border: 2px solid $gray;
 		background-color: $dark-gray;
 		cursor: pointer;
 
@@ -41,7 +41,7 @@
 		width: 100%;
 		background-color: $dark-gray;
 		border-radius: 0.2rem;
-		border: 2px solid $white;
+		border: 2px solid $gray;
 
 		&::placeholder {
 			color: $gray;
@@ -68,14 +68,12 @@
 		font-weight: 500;
 		text-transform: uppercase;
 		border: 0;
-		border: 2px solid $white;
-		background-color: $dark-gray;
+		background-color: $light-blue;
 		cursor: pointer;
 		color: $white;
 		border-radius: 0.2rem;
 		&:hover {
-			border-color: $dark-blue;
-			color: $dark-blue;
+			background-color: $dark-blue;
 		}
 	}
 }
