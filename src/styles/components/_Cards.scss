@@ -1,7 +1,7 @@
 .cards-container {
 	.cards {
 		@include cards-grid;
-		margin: 1rem 0;
+		margin: 2rem 0;
 
 		.card {
 			@include card;
@@ -9,7 +9,7 @@
 				color: $light-blue;
 				font-weight: 500;
 				margin-top: 0.5rem;
-				font-size: 1.1rem;
+				font-size: 17px;
 				cursor: pointer;
 				display: inline-block;
 				transition: padding 0.25s;
@@ -21,6 +21,7 @@
 			}
 			h4 {
 				font-weight: 500;
+				font-size: 15px;
 			}
 			img {
 				width: 100%;

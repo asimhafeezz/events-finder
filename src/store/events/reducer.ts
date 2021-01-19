@@ -1,4 +1,4 @@
-import { EventI } from './action'
+import { EventI, CountriesI } from './action'
 import { Action, ActionsTypes } from './types'
 
 export interface InitialStateI {
@@ -6,7 +6,7 @@ export interface InitialStateI {
 	loading: boolean
 	allEvents: EventI[]
 	event: EventI
-	countries: string[]
+	countries: CountriesI[]
 }
 
 const initialState: InitialStateI = {

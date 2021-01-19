@@ -5,7 +5,7 @@ import { ActionsTypes as types } from './types'
 
 const url: string =
 	'https://app.ticketmaster.com/discovery/v2/events.json?apikey=sK6sqAtjpwLuOky6TFLJVidiimUvGYaB'
-const countries_url: string = 'https://api.first.org/data/v1/countries'
+const countries_url: string = 'https://restcountries.eu/rest/v2/all'
 
 export interface FetchEventActionI {
 	type: types.fetchEvents
@@ -14,7 +14,7 @@ export interface FetchEventActionI {
 
 export interface FetchAllCountriesActionI {
 	type: types.fetchAllCountries
-	payload: any
+	payload: CountriesI[]
 }
 
 export interface FetchEventByIdActionI {
@@ -67,6 +67,11 @@ interface ResEventDataI {
 	}
 }
 
+export interface CountriesI {
+	name: string
+	alpha2Code: string
+}
+
 export const useAction = (): UseActionI => {
 	const dispatch = useDispatch()
 
@@ -96,13 +101,11 @@ export const useAction = (): UseActionI => {
 
 	//a function for fetching just all events
 	const fetchAllCountries = async (): Promise<void> => {
-		const res = await axios.get<any>(countries_url)
-
-		console.log(Object.keys(res.data.data).map(item => item))
+		const res = await axios.get<CountriesI[]>(countries_url)
 
 		dispatch<FetchAllCountriesActionI>({
 			type: types.fetchAllCountries,
-			payload: Object.keys(res.data.data).map(item => item),
+			payload: res.data,
 		})
 	}
 

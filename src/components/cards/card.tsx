@@ -13,7 +13,9 @@ export const Card: React.FC<CardPropsI> = ({ event }) => {
 	return (
 		<section className='card'>
 			<img src={images[0].url} alt='flag images' />
-			<h3 onClick={() => push(`/${id}`)}>{name}</h3>
+			<h3 onClick={() => push(`/${id}`)}>
+				{name.length > 30 ? `${name.slice(0, 30)}...` : name}
+			</h3>
 			<p>{dates.start.dateTime}</p>
 			<h4>{_embedded?.venues[0].name}</h4>
 		</section>
