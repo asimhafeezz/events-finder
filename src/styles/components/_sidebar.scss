@@ -53,6 +53,15 @@
 		}
 	}
 
+	@media (max-width: 800px) {
+		input[name='startDateTime'] {
+			display: none;
+		}
+		input[name='endDateTime'] {
+			display: none;
+		}
+	}
+
 	h1 {
 		margin-bottom: 1rem;
 		font-weight: 600;
